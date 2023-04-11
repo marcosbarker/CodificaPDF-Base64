@@ -7,13 +7,13 @@ import java.nio.file.StandardOpenOption;
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("\n\tToma base64 purinho purinho!\n");
-        System.out.println();
-
         String filePath = "pdfTeste.pdf";
         File file = new File(filePath);
 
         byte[] bytes = Files.readAllBytes(file.toPath());
         String encodedFile = Base64.getEncoder().encodeToString(bytes);
+        String outputFilePath = "base64purinhoPurinho.txt";
+        Files.write(Paths.get(outputFilePath), encodedFile.getBytes(), StandardOpenOption.CREATE);
 
         System.out.println(encodedFile + "\n\nFim do base64 purinho purinho!\n\n");
 
